@@ -1,4 +1,4 @@
-package com.example.motivation.ui.screen.main
+package com.example.motivation.presentation.screen.main
 
 import androidx.lifecycle.ViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel

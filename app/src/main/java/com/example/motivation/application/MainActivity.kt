@@ -1,4 +1,4 @@
-package com.example.motivation
+package com.example.motivation.application
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -8,8 +8,8 @@ import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.motivation.ui.screen.main.HomeScreen
-import com.example.motivation.ui.theme.MotivationTheme
+import com.example.motivation.presentation.screen.main.HomeScreen
+import com.example.motivation.presentation.theme.MotivationTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -18,22 +18,16 @@ class MainActivity : ComponentActivity() {
             MotivationTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(color = MaterialTheme.colors.background) {
-                    HomeScreen()
+                    MainView()
                 }
             }
         }
     }
 }
 
+@Preview
 @Composable
-fun Greeting(name: String) {
-    Text(text = "Hello $name!")
+fun MainView(){
+    HomeScreen()
 }
 
-@Preview(showBackground = true)
-@Composable
-fun DefaultPreview() {
-    MotivationTheme {
-        Greeting("Android")
-    }
-}
