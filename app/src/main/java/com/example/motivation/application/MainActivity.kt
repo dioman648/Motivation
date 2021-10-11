@@ -5,29 +5,34 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
-import androidx.compose.material.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.tooling.preview.Preview
-import com.example.motivation.presentation.screen.main.HomeScreen
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+import com.example.motivation.presentation.Screen
+import com.example.motivation.presentation.screen.create_task.CreateScreen
+import com.example.motivation.presentation.screen.main.MainScreen
 import com.example.motivation.presentation.theme.MotivationTheme
 
 class MainActivity : ComponentActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             MotivationTheme {
-                // A surface container using the 'background' color from the theme
                 Surface(color = MaterialTheme.colors.background) {
-                    MainView()
+                    val navController = rememberNavController()
+
+                    NavHost(navController = navController, startDestination = Screen.HomeScreen.route){
+                        composable(Screen.HomeScreen.route){
+                            MainScreen(navController)
+                        }
+                        composable(Screen.CreateScreen.route){
+                            CreateScreen()
+                        }
+                    }
                 }
             }
         }
     }
-}
 
-@Preview
-@Composable
-fun MainView(){
-    HomeScreen()
 }
-
