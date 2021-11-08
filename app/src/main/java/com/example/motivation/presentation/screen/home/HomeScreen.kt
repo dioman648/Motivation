@@ -1,13 +1,14 @@
 package com.example.motivation.presentation.screen.home
 
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.tooling.preview.PreviewParameter
 import androidx.compose.ui.unit.dp
 
 @Composable
@@ -21,7 +22,8 @@ fun HomeScreen(onNavigateClick: (route: String) -> Unit) {
         Spacer(modifier = Modifier.height(16.dp))
         LazyColumn {
             items(1000) {
-                Text("Item is")
+                TaskItem()
+                Spacer(modifier = Modifier.height(8.dp))
             }
         }
     }
